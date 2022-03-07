@@ -33,9 +33,9 @@ void setup() {
 
 void loop() {
   microphone.read(i2sReadrawBuff,100);
-//  Serial.print("right channel=");
-//  Serial.println((int16_t)(i2sReadrawBuff[0]|i2sReadrawBuff[1]<<8));
-  Serial.print("left channel=");
+  //输出左声道数据
   Serial.println((int16_t)(i2sReadrawBuff[2]|i2sReadrawBuff[3]<<8));
+  //输出右声道数据
+  //Serial.println((int16_t)(i2sReadrawBuff[0]|i2sReadrawBuff[1]<<8));
   delay(100);
 }

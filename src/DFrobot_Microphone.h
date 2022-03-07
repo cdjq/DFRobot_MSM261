@@ -28,15 +28,6 @@ class DFRobot_Microphone
     
 public:
     /**
-     * @fn eMode
-     * @brief 声道选择
-     */
-    typedef enum{
-        eLiftChannel  = 0,
-        eRightChannel = 1,
-        eStereo       = 2
-    }eMode;
-    /**
      * @brief 麦克风构造函数
      * @param bckIoNum 时钟引脚配置
      * @param wsIoNum  ws引脚配置
