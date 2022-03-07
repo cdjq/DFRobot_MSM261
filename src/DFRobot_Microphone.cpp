@@ -10,21 +10,15 @@
  */
 #include "DFrobot_Microphone.h"
 
-DFRobot_Microphone::DFRobot_Microphone(uint8_t bckIoNum, uint8_t wsIoNum, uint8_t dInNum, uint8_t modePin)
+DFRobot_Microphone::DFRobot_Microphone(uint8_t bckIoNum, uint8_t wsIoNum, uint8_t dInNum)
 {
   _bckIoNum = bckIoNum;
   _wsIoNum  = wsIoNum;
   _dInNum   = dInNum;
-	_modePin  = modePin;
-	gpio_reset_pin((gpio_num_t)_modePin);
-  gpio_set_direction((gpio_num_t)_modePin, GPIO_MODE_OUTPUT);
-  
 }
 
-uint8_t DFRobot_Microphone::begin(uint16_t baudRate,uint8_t bit,eMode mode)
+uint8_t DFRobot_Microphone::begin(uint16_t baudRate,uint8_t bit)
 {
-	_mode = mode;
-	gpio_set_level((gpio_num_t)_modePin, _mode);
 	uint8_t state=0;
 	uint8_t ret=0;
   i2s_config_t i2s_config = {
@@ -53,7 +47,7 @@ uint8_t DFRobot_Microphone::begin(uint16_t baudRate,uint8_t bit,eMode mode)
   return ret;
 }
 
-uint32_t DFRobot_Microphone::read(char *buffer,size_t len)
+uint32_t DFRobot_Microphone::read(char* buffer,size_t len)
 {
   uint32_t returnDataLen;
   i2s_read(I2S_NUM, (char*)buffer, len, &returnDataLen, 1);
@@ -113,4 +107,3 @@ void DFRobot_Microphone::createWavHeader(byte* header, int totalDataLen, int lon
   header[42] = (byte)((totalDataLen >> 16) & 0xFF);
   header[43] = (byte)((totalDataLen >> 24) & 0xFF);
 }
-

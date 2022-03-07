@@ -32,21 +32,24 @@ byte header[headerSize];//WAVE文件的文件头
 char communicationData[numCommunicationData];
 
 
-DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO, MODE_PIN);
+DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO);
 File file;
 
 void setup() {
   Serial.begin(115200);
-  while(microphone.begin(SAMPLE_RATE, DATA_BIT, microphone.eRightChannel) != 0){
+  pinMode(MODE_PIN,OUTPUT);
+  digitalWrite(MODE_PIN,LOW);//将麦克风配置为接收左声道数据
+  //digitalWrite(MODE_PIN,HIGH);//将麦克风配置为接收右声道数据
+  while(microphone.begin(SAMPLE_RATE, DATA_BIT) != 0){
       Serial.println(" I2S init failed");
   }
   Serial.println("I2S init success");
-	if (!SD.begin()) Serial.println("SD begin failed");
-  	while(!SD.begin()){
-    	Serial.print(".");
-    	delay(500);
-  	}
-	/*
+  if (!SD.begin()) Serial.println("SD begin failed");
+    while(!SD.begin()){
+      Serial.print(".");
+      delay(500);
+    }
+  /*
    * @brief 构建WAVE文件的头
    * @param header 构建WAVE的文件
    * @param totalDataLen 需要写入的数据长度
@@ -57,14 +60,25 @@ void setup() {
   void createWavHeader(byte* header, int totalDataLen, int longSampleRate, uint8_t channels, int byteRate, uint8_t blockAlign);*/
   microphone.createWavHeader(header, waveDataSize,44100,2,byteRate,4);
   SD.remove(filename);
-	//打开文件，如果没有文件就创建文件
+  //打开文件，如果没有文件就创建文件
   file = SD.open(filename, FILE_WRITE);
   if (!file) return;
-	//将wave文件的头写入文件中
+  //将wave文件的头写入文件中
   file.write(header, headerSize);
-	Serial.println("start");
+  Serial.println("start");
   for (int j = 0; j < waveDataSize/numCommunicationData; ++j) {
     microphone.read(communicationData, numCommunicationData);
+    /**
+     * @brief 单声道数据处理，当使用单声道时需要处理另一个声道的数据
+     * 防止对有效声道的干扰产生杂音，当使用两个麦克风组成双声道时可以
+     * 屏蔽此步骤。
+     */
+    for(uint32_t i = 0;i < (numCommunicationData>>2);i++){
+      communicationData[(i<<2)] = 0;
+      communicationData[(i<<2)+1] = 0;
+      //communicationData[(i<<2)+2] = 0;
+      //communicationData[(i<<2)+3] = 0;
+    }
     file.write((uint8_t*)communicationData, numCommunicationData);
   }
   file.close();

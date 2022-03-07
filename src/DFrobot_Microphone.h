@@ -17,7 +17,7 @@
 
 #define I2S_NUM         (i2s_port_t)(0)
 
-#define ENABLE_DBG //!< 打开这个宏, 可以看到程序的详细运行过程
+//#define ENABLE_DBG //!< 打开这个宏, 可以看到程序的详细运行过程
 #ifdef ENABLE_DBG
 #define DBG(...) {Serial.print("[");Serial.print(__FUNCTION__); Serial.print("(): "); Serial.print(__LINE__); Serial.print(" ] "); Serial.println(__VA_ARGS__);}
 #else
@@ -34,15 +34,15 @@ public:
     typedef enum{
         eLiftChannel  = 0,
         eRightChannel = 1,
+        eStereo       = 2
     }eMode;
     /**
      * @brief 麦克风构造函数
      * @param bckIoNum 时钟引脚配置
      * @param wsIoNum  ws引脚配置
      * @param dInNum   数据获取引脚
-     * @param modePin  模式配置引脚
      */
-    DFRobot_Microphone(uint8_t bckIoNum, uint8_t wsIoNum, uint8_t dInNum, uint8_t modePin);
+    DFRobot_Microphone(uint8_t bckIoNum, uint8_t wsIoNum, uint8_t dInNum);
     /**
      * @fn begin
      * @brief 初始化设备
@@ -50,7 +50,7 @@ public:
      * @param bit 数据位数
      * @return 返回初始化状态
      */
-    uint8_t begin(uint16_t baudRate,uint8_t bit,eMode mode);
+    uint8_t begin(uint16_t baudRate,uint8_t bit);
 
     /**
      * @brief 获取麦克风返回数据
@@ -58,7 +58,7 @@ public:
      * @param len    获取数据长度
      * @return 返回获取数据长度
      */
-    uint32_t read(char *buffer,size_t len);
+    uint32_t read(char* buffer,size_t len);
 
     /**
      * @brief 构建WAVE文件的头
@@ -75,7 +75,6 @@ private:
     uint8_t _bckIoNum;
     uint8_t _wsIoNum;
     uint8_t _dInNum;
-    uint8_t _modePin;
     uint8_t _mode;
 
 };

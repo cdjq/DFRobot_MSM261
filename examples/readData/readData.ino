@@ -17,11 +17,14 @@
 #define I2S_DI_IO       (27)
 #define DATA_BIT        (16)
 #define MODE_PIN        (4)
-DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO,MODE_PIN);
+DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO);
 char i2sReadrawBuff[100];
 void setup() {
   Serial.begin(115200);
-  while(microphone.begin(SAMPLE_RATE, DATA_BIT, microphone.eLiftChannel) != 0){
+  pinMode(MODE_PIN,OUTPUT);
+  digitalWrite(MODE_PIN,LOW);//将麦克风配置为接收左声道数据
+  //digitalWrite(MODE_PIN,HIGH);//将麦克风配置为接收右声道数据
+  while(microphone.begin(SAMPLE_RATE, DATA_BIT) != 0){
       Serial.println(" I2S init failed");
   }
   Serial.println("I2S init success");

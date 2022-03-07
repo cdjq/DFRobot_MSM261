@@ -40,7 +40,7 @@
    * @param bit 数据位数
    * @return 返回初始化状态
    */
-  uint8_t begin(uint16_t baudRate,uint8_t bit,eMode mode)
+  uint8_t begin(uint16_t baudRate,uint8_t bit)
 
   /**
    * @brief 获取麦克风返回数据
