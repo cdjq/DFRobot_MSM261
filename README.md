@@ -43,6 +43,7 @@
   uint8_t begin(uint16_t baudRate,uint8_t bit)
 
   /**
+   * @fn read
    * @brief 获取麦克风返回数据
    * @param buffer 获取数据得buffer
    * @param len    获取数据长度
@@ -51,6 +52,7 @@
   uint32_t read(char *buffer,size_t len)
 
   /**
+   * @fn createWavHeader
    * @brief 构建WAVE文件的头
    * @param header 构建WAVE的文件
    * @param totalDataLen 需要写入的数据长度
@@ -64,6 +66,7 @@
 ## 方法DFRobot_BluetoothA2DPSource
 ```C++
 	/**
+   * @fn begin
    * @brief 初始化蓝牙和a2dp
    * @param name  蓝牙名称
    * @param callback a2dp发送数据的回调函数

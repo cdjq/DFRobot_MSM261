@@ -28,6 +28,7 @@ class DFRobot_Microphone
     
 public:
     /**
+     * @fn DFRobot_Microphone
      * @brief 麦克风构造函数
      * @param bckIoNum 时钟引脚配置
      * @param wsIoNum  ws引脚配置
@@ -44,6 +45,7 @@ public:
     uint8_t begin(uint16_t baudRate,uint8_t bit);
 
     /**
+     * @fn read
      * @brief 获取麦克风返回数据
      * @param buffer 获取数据得buffer
      * @param len    获取数据长度
@@ -52,6 +54,7 @@ public:
     uint32_t read(char* buffer,size_t len);
 
     /**
+     * @fn createWavHeader
      * @brief 构建WAVE文件的头
      * @param header 构建WAVE的文件
      * @param totalDataLen 需要写入的数据长度

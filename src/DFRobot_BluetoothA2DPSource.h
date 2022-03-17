@@ -49,10 +49,12 @@ class DFRobot_BluetoothA2DPSource
   
 public:
   /**
+   * @fn DFRobot_BluetoothA2DPSource
    * @brief 蓝牙麦克风构造函数
    */
   DFRobot_BluetoothA2DPSource(void);
   /**
+   * @fn begin
    * @brief 初始化蓝牙和a2dp
    * @param name  连接蓝牙从机的名称
    * @param callback a2dp发送数据的回调函数
