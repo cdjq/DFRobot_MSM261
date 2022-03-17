@@ -65,7 +65,7 @@
 ```
 ## 方法DFRobot_BluetoothA2DPSource
 ```C++
-	/**
+  /**
    * @fn begin
    * @brief 初始化蓝牙和a2dp
    * @param name  蓝牙名称
