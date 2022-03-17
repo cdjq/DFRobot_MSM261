@@ -63,7 +63,7 @@
 ```
 ## 方法DFRobot_BluetoothA2DPSource
 ```C++
-	/**
+  /**
    * @brief 初始化蓝牙和a2dp
    * @param name  蓝牙名称
    * @param callback a2dp发送数据的回调函数
