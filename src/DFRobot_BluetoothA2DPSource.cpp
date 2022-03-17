@@ -1,5 +1,5 @@
 /*!
- * @file DFRobot_A2DP.h
+ * @file DFRobot_BluetoothA2DPSource.h
  * @brief 蓝牙麦克风的实现
  * @copyright	Copyright (c) 2021 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license The MIT License (MIT)

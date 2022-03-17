@@ -1,4 +1,4 @@
-# DFRobot_ICP10111
+# DFrobot_Microphone
 - [中文版](./README_CN.md)
 
 这是一个麦克风的库，库中集成了获取麦克风原始数据、将麦克风数据存储在SD卡中，使用蓝牙传输麦克风数据

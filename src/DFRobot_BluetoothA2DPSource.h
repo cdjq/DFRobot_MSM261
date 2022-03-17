@@ -1,5 +1,5 @@
 /*!
- * @file DFRobot_A2DP.h
+ * @file DFRobot_BluetoothA2DPSource.h
  * @brief 蓝牙麦克风的构造函数
  * @copyright	Copyright (c) 2021 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @license The MIT License (MIT)
@@ -54,9 +54,9 @@ public:
   DFRobot_BluetoothA2DPSource(void);
   /**
    * @brief 初始化蓝牙和a2dp
-   * @param name  蓝牙名称
+   * @param name  连接蓝牙从机的名称
    * @param callback a2dp发送数据的回调函数
-   * @param volume 声音强度
+   * @param volume 声音强度范围0~100
    */
   bool begin(const char* name, esp_a2d_source_data_cb_t callback,uint8_t volume);
 
