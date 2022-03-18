@@ -15,17 +15,11 @@
 
 #define APP_RC_CT_TL_RN_VOLUME_CHANGE       (1)
 #define BT_APP_HEART_BEAT_EVT               (0xff00)
-
-	/* A2DP global state */
-	enum {
-    APP_AV_STATE_IDLE,
-    APP_AV_STATE_DISCOVERING,
-    APP_AV_STATE_DISCOVERED,
-    APP_AV_STATE_UNCONNECTED,
-    APP_AV_STATE_CONNECTING,
-    APP_AV_STATE_CONNECTED,
-    APP_AV_STATE_DISCONNECTING,
-	};
+#define 	APP_AV_STATE_IDLE                 (0)
+#define 	APP_AV_STATE_DISCOVERING          (1)
+#define 	APP_AV_STATE_DISCOVERED           (2)
+#define 	APP_AV_STATE_UNCONNECTED          (3)
+#define 	APP_AV_STATE_CONNECTING           (4)
 
 
 DFRobot_BluetoothA2DPSource *_selfBluetoothA2DPSource;
@@ -291,11 +285,11 @@ void DFRobot_BluetoothA2DPSource::btAppAvStateConnecting(esp_a2d_cb_event_t even
 			if (a2d->media_ctrl_stat.cmd == ESP_A2D_MEDIA_CTRL_CHECK_SRC_RDY &&
         a2d->media_ctrl_stat.status == ESP_A2D_MEDIA_CTRL_ACK_SUCCESS) {
 				Serial.println("a2dp media ready, stop ...");
-        esp_a2d_media_ctrl(ESP_A2D_MEDIA_CTRL_STOP);//		
+        esp_a2d_media_ctrl(ESP_A2D_MEDIA_CTRL_STOP);		
       }else if (a2d->media_ctrl_stat.cmd == ESP_A2D_MEDIA_CTRL_STOP &&
         a2d->media_ctrl_stat.status == ESP_A2D_MEDIA_CTRL_ACK_SUCCESS) {
 				Serial.println("a2dp media ready, starting ...");
-				esp_a2d_media_ctrl(ESP_A2D_MEDIA_CTRL_START);//			
+				esp_a2d_media_ctrl(ESP_A2D_MEDIA_CTRL_START);			
       } if (a2d->media_ctrl_stat.cmd == ESP_A2D_MEDIA_CTRL_START &&
         a2d->media_ctrl_stat.status == ESP_A2D_MEDIA_CTRL_ACK_SUCCESS) {
 				Serial.println("a2dp media start successfully.");

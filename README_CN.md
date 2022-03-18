@@ -1,4 +1,4 @@
-# DFrobot_Microphone
+# DFrobot_MSM261
 - [英文版](./README.md)
 
 这是一个麦克风的库，库中集成了获取麦克风原始数据、将麦克风数据存储在SD卡中，使用蓝牙传输麦克风数据
@@ -6,7 +6,7 @@
 ![产品效果图片](./resources/images/SEN0526.png)
 
 
-## 产品链接（https://www.dfrobot.com）
+## 产品链接（https://www.dfrobot.com.cn）
 
     SKU：SEN0526
 
@@ -82,7 +82,7 @@ FireBeetle-ESP32   |      √       |              |             |
 
 ## 历史
 
-- 2022/03/03 - 版本 V1.0.0.
+- 2022/03/03 -1.0.0 版本.
 
 ## 创作者
 

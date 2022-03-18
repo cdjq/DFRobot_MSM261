@@ -9,7 +9,7 @@
  * @url https://github.com/DFRobot/DFRobot_Microphone
  */
 
-#include "DFrobot_Microphone.h"
+#include "DFrobot_MSM261.h"
 
 #define SAMPLE_RATE     (44100)
 #define I2S_BCK_IO      (25)

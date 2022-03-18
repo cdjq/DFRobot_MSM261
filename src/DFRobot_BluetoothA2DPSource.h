@@ -59,6 +59,9 @@ public:
    * @param name  连接蓝牙从机的名称
    * @param callback a2dp发送数据的回调函数
    * @param volume 声音强度范围0~100
+   * @return 返回初始化是否成功
+   * @retval true 初始化成功
+   * @retval false 初始化失败
    */
   bool begin(const char* name, esp_a2d_source_data_cb_t callback,uint8_t volume);
 
@@ -80,11 +83,13 @@ private:
    * @brief  bluetooth GAP callback function type
    * @param  event : Event type
    * @param  param : Pointer to callback parameter
+   * @return None
    */
   void btAppGapCb(esp_bt_gap_cb_event_t event, esp_bt_gap_cb_param_t *param);
   /**
    * @brief 蓝牙扫描
    * @param param A2DP state callback parameters
+   * @return None
    */
   void filterInquiryScanResult(esp_bt_gap_cb_param_t *param);
   /**
@@ -92,8 +97,8 @@ private:
    * @param eir 蓝牙名称原始数据
    * @param bdname 蓝牙名称
    * @param bdname_len 蓝牙名称长度
-   * @return true 
-   * @return false 
+   * @return true 成功
+   * @return false 失败
    */
   bool getNameFromEir(uint8_t *eir, uint8_t *bdname, uint8_t *bdname_len);
   /**
@@ -101,23 +106,26 @@ private:
    * @param bda Bluetooth device address
    * @param str 解析后的字符串
    * @param size 数据长度
-   * @return char* 
+   * @return char* 蓝牙地址
    */
   char *bda2str(esp_bd_addr_t bda, char *str, size_t size);
   /**
    * @brief AVRC事件回调函数
    * @param event AVRC Controller callback events
    * @param param AVRC controller callback parameters
+   * @return None
    */
   void btAppRcCtCb(esp_avrc_ct_cb_event_t event, esp_avrc_ct_cb_param_t *param);
   /**
    * @brief A2DP事件回调函数
    * @param event A2DP callback events
    * @param param A2DP state callback parameters
+   * @return None
    */
   void btAppAvStateConnecting(esp_a2d_cb_event_t event, esp_a2d_cb_param_t *param);
   /**
    * @brief Send register notification command to AVRCP target
+   * @return None
    */
   void btAvVolumeChanged(void);
 };

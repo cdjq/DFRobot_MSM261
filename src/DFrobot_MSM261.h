@@ -62,6 +62,7 @@ public:
      * @param channels 声道数量
      * @param byteRate 字节速率 计算方式：采样速率x声道数量x数据位数/8
      * @param blockAlign 块对齐方式 计算方式：声道数量x数据位数/8
+     * @return None
      */
     void createWavHeader(byte* header, int totalDataLen, int longSampleRate, uint8_t channels, int byteRate, uint8_t blockAlign);
    

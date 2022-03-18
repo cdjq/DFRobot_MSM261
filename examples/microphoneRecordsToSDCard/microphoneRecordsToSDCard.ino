@@ -10,7 +10,7 @@
  * @url https://github.com/DFRobot/DFRobot_Microphone
  */
 
-#include "DFrobot_Microphone.h"
+#include "DFrobot_MSM261.h"
 #include "SPI.h"
 #include <SD.h>
 #include <FS.h>

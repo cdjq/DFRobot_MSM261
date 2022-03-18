@@ -9,7 +9,7 @@
  * @url https://github.com/DFRobot/DFRobot_Microphone
  */
 
-#include "DFrobot_Microphone.h"
+#include "DFrobot_MSM261.h"
 #include "DFRobot_BluetoothA2DPSource.h"
 
 

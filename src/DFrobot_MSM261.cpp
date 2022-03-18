@@ -8,7 +8,7 @@
  * @date 2022-2-18
  * @url https://github.com/DFRobot/DFRobot_Microphone
  */
-#include "DFrobot_Microphone.h"
+#include "DFrobot_MSM261.h"
 
 DFRobot_Microphone::DFRobot_Microphone(uint8_t bckIoNum, uint8_t wsIoNum, uint8_t dInNum)
 {
@@ -36,7 +36,7 @@ uint8_t DFRobot_Microphone::begin(uint16_t baudRate,uint8_t bit)
     .bck_io_num = _bckIoNum,
     .ws_io_num = _wsIoNum,
     .data_out_num = -1,
-    .data_in_num = _dInNum                                             //Not used
+    .data_in_num = _dInNum                                             
   };
 	state = i2s_driver_install(I2S_NUM, &i2s_config, 0, NULL);
   state += i2s_set_pin(I2S_NUM, &pin_config);
