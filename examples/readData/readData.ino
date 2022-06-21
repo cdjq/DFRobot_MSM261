@@ -17,7 +17,7 @@
 #define I2S_DI_IO       (27)
 #define DATA_BIT        (16)
 #define MODE_PIN        (4)
-DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO);
+DFRobot_Microphone microphone(I2S_SCK_IO, I2S_WS_IO, I2S_DI_IO);
 char i2sReadrawBuff[100];
 void setup() {
   Serial.begin(115200);

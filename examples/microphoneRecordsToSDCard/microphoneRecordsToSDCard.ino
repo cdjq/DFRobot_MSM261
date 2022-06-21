@@ -32,7 +32,7 @@ byte header[headerSize];//WAVE文件的文件头
 char communicationData[numCommunicationData];
 
 
-DFRobot_Microphone microphone(I2S_BCK_IO, I2S_WS_IO, I2S_DI_IO);
+DFRobot_Microphone microphone(I2S_SCK_IO, I2S_WS_IO, I2S_DI_IO);
 File file;
 
 void setup() {
