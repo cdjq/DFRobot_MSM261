@@ -6,7 +6,7 @@
  * @author [TangJie](jie.tang@dfrobot.com)
  * @version V1.0
  * @date 2022-2-18
- * @url https://github.com/DFRobot/DFRobot_Microphone
+ * @url https://github.com/DFRobot/DFRobot_MSM261
  */
 #ifndef _DFROBOT_MICROPHONE_H_
 #define _DFROBOT_MICROPHONE_H_

@@ -6,13 +6,13 @@
  * @author [TangJie](jie.tang@dfrobot.com)
  * @version V1.0
  * @date 2022-02-18
- * @url https://github.com/DFRobot/DFRobot_Microphone
+ * @url https://github.com/DFRobot/DFRobot_MSM261
  */
 
 #include "DFrobot_MSM261.h"
 
 #define SAMPLE_RATE     (44100)
-#define I2S_BCK_IO      (25)
+#define I2S_SCK_IO      (25)
 #define I2S_WS_IO       (16)
 #define I2S_DI_IO       (27)
 #define DATA_BIT        (16)
